@@ -29,12 +29,17 @@
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="{{ route('show') }}" class="nav-link">Нанять волонтера</a></li>
             <li class="nav-item"><a href="{{ route('show') }}" class="nav-link">Взять заказ</a></li>
-            <li class="nav-item"><a href="{{ route('volonter') }}" class="nav-link">Волонтеры</a></li>
+
+
+
             <li class="nav-item"><a href="{{ route('org') }}" class="nav-link">Желаю помочь</a></li>
 
             <div class="d-flex bg-indigo-50">
                 @if (Route::has('login'))
                     @auth
+                        @if (auth()->user()->role == 'admin')
+                            <li class="nav-item"><a href="{{ route('volonter') }}" class="nav-link">Волонтеры</a></li>
+                        @endif
                         <li class="nav-item"><a href="{{ url('/dashboard') }}" class="nav-link">Профиль</a></li>
                     @else
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Войти</a></li>

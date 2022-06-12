@@ -63,7 +63,7 @@
                               @error('description') is-invalid @enderror"
                               id="floatingTextarea2"
                               style="height: 100px"
-                              placeholder="Описание товара"
+                              placeholder="Расскажите о "
                               type="text"
                               name="description">{{ old('description') }}</textarea>
                     <label for="floatingTextarea2">Введите описание товара</label>

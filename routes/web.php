@@ -10,10 +10,14 @@ use App\Http\Controllers\Product\OneShowProductController;
 use App\Http\Controllers\Product\RegProdController;
 use App\Http\Controllers\Product\ShowController;
 use App\Http\Controllers\Product\TagColorController;
+use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Volonter\ShowOrgController;
 use App\Http\Controllers\Volonter\ShowVolonterController;
-use Illuminate\Support\Facades\Route;
+
+
+
+
 
 
 // My project
@@ -36,7 +40,7 @@ use App\Models\Tag;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth', 'admin'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -48,6 +52,7 @@ Route::group(['namespace' => 'volonter'], function() {
     // Волонтеры и Неком Орг
     Route::get('volonter', [ShowVolonterController::class, '__invoke'])
         ->name('volonter');
+
     Route::get('org', [ShowOrgController::class, '__invoke'])
         ->name('org');
 

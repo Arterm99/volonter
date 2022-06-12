@@ -21,7 +21,7 @@ class ShowController extends BaseController
         */
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($validated)]);
-        // fragment - обавялет хэш, withQueryString() - ссылки для фильтрации | withQueryString - сохраняет ссылки в пагинцаии
+        // fragment - добавялет хэш, withQueryString() - ссылки для фильтрации | withQueryString - сохраняет ссылки в пагинцаии
         $table = AdminPanel::filter($filter)->orderBy('id', 'desc')->paginate(2)->fragment('users')->withQueryString();
 
         $categories = Category::all();

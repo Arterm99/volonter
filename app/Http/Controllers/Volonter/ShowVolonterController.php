@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Volonter;
 
 use App\Http\Controllers\Controller;
 use App\Http\Filters\PostFilter;
-use App\Http\Requests\Product\FilterRequest;
+use App\Http\Requests\Volonter\VolonterRequests;
 use App\Models\AdminPanel;
 use App\Models\Category;
+use App\Models\UserVolonter;
 
 class ShowVolonterController extends BaseController
 {
-    public function __invoke(FilterRequest $request)
+    public function __invoke(VolonterRequests $request)
     {
+
         $validated = $request->validated();
         /* Фильтр 1. Если существует любой запрос
         $table = AdminPanel::orderBy('id', 'desc')->paginate(100)->fragment('users')->withQueryString();
@@ -22,10 +24,8 @@ class ShowVolonterController extends BaseController
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($validated)]);
         // fragment - обавялет хэш, withQueryString() - ссылки для фильтрации | withQueryString - сохраняет ссылки в пагинцаии
-        $table = AdminPanel::filter($filter)->orderBy('id', 'desc')->paginate(2)->fragment('users')->withQueryString();
+        $table = UserVolonter::filter($filter)->orderBy('id', 'desc')->paginate(2)->fragment('users')->withQueryString();
 
-        $categories = Category::all();
-        // $ravno = new AdminPanel;
 
         return view('volonter/volonter', [
 
@@ -36,8 +36,10 @@ class ShowVolonterController extends BaseController
 
           // Старое
           //  'table' => $table->orderBy('id', 'desc')->take(6)->get(),
-            'table_name' => AdminPanel::exists(),
-            'cat' => $categories
+            'table_name' => UserVolonter::exists(),
+
+//            'cat' => $categories
+
             //  ['ravno' => $ravno->where('category', '=', 'zspr')->get()]
         ]);
     }

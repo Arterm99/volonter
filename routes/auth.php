@@ -8,7 +8,11 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Volonter\Auth\RegisteredOrgController;
+use App\Http\Controllers\Volonter\Auth\RegisteredVolonterController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Middleware\AdminPanelMiddleware;
 
 // Volonter
 
@@ -17,12 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
 
     // Волонтеры
-    Route::get('register-volonter', [RegisteredUserController::class, 'create'])
+    Route::get('register-volonter', [RegisteredVolonterController::class, 'create'])
         ->name('register-volonter');
-    Route::post('register-volonter', [RegisteredUserController::class, 'create']);
+    Route::post('register-volonter', [RegisteredVolonterController::class, 'store']);
+
     // Неком Орг
-    Route::get('register-org', [RegisteredUserController::class, 'create'])
+    Route::get('register-org', [RegisteredOrgController::class, 'create'])
         ->name('register-org');
+    Route::post('register-org', [RegisteredOrgController::class, 'create']);
 
 
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -48,7 +54,7 @@ Route::middleware('guest')->group(function () {
                 ->name('password.update');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth' )->group(function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 
