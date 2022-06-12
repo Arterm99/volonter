@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Addres extends Model
 {
     use HasFactory;
 
     // Достаем значения по id (категории) .. hasMany - определяет отношение одного объекта с другим .. admin_panel_id - имя бд
-    public function products() {
+    public function volonters() {
 
-        return $this->hasMany(AdminPanel::class, 'category_id', 'id');
+        return $this->hasMany(UserVolonter::class, 'addres_id', 'id');
     }
 }

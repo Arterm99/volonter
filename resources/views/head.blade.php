@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title-block')</title>
 
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/custum.scss">
-    <link rel="stylesheet" href="/css/custum.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> -->
 
@@ -27,8 +24,8 @@
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ route('show') }}" class="nav-link">Нанять волонтера</a></li>
-            <li class="nav-item"><a href="{{ route('show') }}" class="nav-link">Взять заказ</a></li>
+            <li class="nav-item"><a href="{{ route('register-volonter') }}" class="nav-link">Нанять волонтера</a></li>
+            <li class="nav-item"><a href="{{ route('register-org') }}" class="nav-link">Взять заказ</a></li>
 
 
 

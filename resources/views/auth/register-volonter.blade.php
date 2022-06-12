@@ -97,37 +97,8 @@
             @enderror
         </div>
 
-        <!-- Адрес -->
-        <div class="form-floating">
-            <input class="form-control
-                        @error('address') is-invalid @enderror"
-                   value="{{ old('address') }}"
-                   placeholder="Адрес"
-                   type="text"
-                   name="address"
-                   >
-            <label for="floatingInput">Адрес</label>
 
-            @error('address')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
 
-        <!-- Навыки -->
-        <div class="form-floating">
-            <input class="form-control
-                        @error('skills') is-invalid @enderror"
-                   value="{{ old('skills') }}"
-                   placeholder="Навыки"
-                   type="text"
-                   name="skills"
-                   >
-            <label for="floatingInput">Навыки</label>
-
-            @error('skills')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
 
         <!-- Расскажите о себе -->
         <div class="form-floating mb-3">

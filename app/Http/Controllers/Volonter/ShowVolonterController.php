@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Volonter;
 use App\Http\Controllers\Controller;
 use App\Http\Filters\PostFilter;
 use App\Http\Requests\Volonter\VolonterRequests;
+use App\Models\Addres;
 use App\Models\AdminPanel;
-use App\Models\Category;
+use App\Models\Skills;
 use App\Models\UserVolonter;
 
 class ShowVolonterController extends BaseController
@@ -24,10 +25,13 @@ class ShowVolonterController extends BaseController
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($validated)]);
         // fragment - обавялет хэш, withQueryString() - ссылки для фильтрации | withQueryString - сохраняет ссылки в пагинцаии
-        $table = UserVolonter::filter($filter)->orderBy('id', 'desc')->paginate(2)->fragment('users')->withQueryString();
+        $table = UserVolonter::filter($filter)->orderBy('id', 'desc')->paginate(12)->fragment('users')->withQueryString();
 
 
-        return view('volonter/volonter', [
+        $address = Addres::all();
+        $skills = Skills::all();
+
+        return view('volonter.volonter', [
 
             'table' => $table,
           // 'table' => $table->withPath('/admin/users'),
@@ -38,7 +42,8 @@ class ShowVolonterController extends BaseController
           //  'table' => $table->orderBy('id', 'desc')->take(6)->get(),
             'table_name' => UserVolonter::exists(),
 
-//            'cat' => $categories
+           'address' => $address,
+           'skills' => $skills,
 
             //  ['ravno' => $ravno->where('category', '=', 'zspr')->get()]
         ]);

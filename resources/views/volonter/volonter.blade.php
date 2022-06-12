@@ -7,7 +7,7 @@
 <!-- Начало кода -->
 @section('content')
 
-    <div class="container bg-indigo-50 p-3 rounded-3">
+    <div class="container bg-indigo-50 p-2 rounded-3">
         <div class="">
             <div class="text">
                 <a href="{{ route('register-volonter') }}" type="button" class="btn btn-warning">Стать волонтером</a>
@@ -15,7 +15,32 @@
         </div>
     </div>
 
-<div class="container" style="padding: 4%;">
+    <div class="container bg-indigo-50 p-2 rounded-3">
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                По адресу
+            </button>
+            <ul class="dropdown-menu">
+                @foreach($address as $key)
+                    <li> <a class="dropdown-item" href="{{ route('address', $key->addres_id ) }}"> {{ $key->address->addres }} </a></li>
+                @endforeach
+            </ul>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                По новыкам
+            </button>
+            <ul class="dropdown-menu">
+                @foreach($skills as $key)
+                    <li> <a class="dropdown-item" href="{{ route('skills', $key->skills_id ) }}"> {{ $key->skills->skills }} </a></li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="container" style="padding: 4%;">
     @if ($table_name != true)
         <div>
             <h3>Пока пусто</h3>
@@ -30,18 +55,20 @@
                          <div class="alert alert-light">
                             <div class="row row-cols-2">
                                 <span> <h3> {{ $key->name }} </h3> </span>
-                                <span style="color: green; text-align: end; font-size: 24px;"> {{ $key->address}} </span>
-{{--                                <span> <a href="{{ route('categories', $key->category_id) }}"> {{ $key->categories->title }}</a> </span>--}}
-                                <span style="color: grey; text-align: end; font-size: 14px;"> {{ $key->weight." кг" }} </span>
+                                <a href="{{ route('one-volonter', $key->id) }}"> <img class="rounded img-fluid img-thumbnail;" style="width: 50%" src="{{ asset($key->profile_image)  }}" title="{{ $key->name }}"></a>
+
+                                <span style="color: grey; font-size: 14px;"> {{ $key->age." лет" }} </span>
                             </div>
+                             <div class="row row-cols-1">
+                                <span> <a href="{{ route('address', $key->addres_id) }}"> {{ $key->address->addres }}</a> </span>
+                                <span> <a href="{{ route('skills', $key->skills_id) }}"> {{ $key->skills->skills }}</a> </span>
+                                <span> {{ $key->description }} </span>
+                             </div>
 
-{{--                            <span> <a href="{{ route('categories', $key->product_id) }}"> {{ $key->categories->product_title }}</a> </span>--}}
-                            <span> {{ $key->description }} </span>
 
-                            <a href="{{ route('one-show-product', $key->id) }}"> <img class="img-thumbnail" src="{{ asset($key->profile_image)  }}" title="{{ $key->name }}"></a>
                             <div class="row">
                                 <div class="col">
-                                    <a href="{{ route('one-show-product', $key->id) }}" class="mx-auto btn btn-outline-dark">Подробнее</a>
+                                    <a href="{{ route('one-volonter', $key->id) }}" class="mx-auto btn btn-outline-dark">Подробнее</a>
                                 </div>
                             </div>
                         </div>

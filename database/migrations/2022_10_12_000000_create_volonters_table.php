@@ -20,10 +20,9 @@ return new class extends Migration
             $table->string('surname')->nullable();
             $table->string('patronymic')->nullable();
             $table->string('age')->nullable();
-            $table->string('address')->nullable();
-            $table->string('skills')->nullable();
+
             $table->text('description')->nullable();
-            $table->string('profile_image')->nullable();
+            $table->string('profile_image')->default('storage/Белый_квадрат.jpg');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -33,6 +32,19 @@ return new class extends Migration
 
             // "Мягкое удаление"
             $table->softDeletes();
+
+
+            // Отношение "Один ко многим"
+            $table->unsignedBigInteger('addres_id')->nullable();
+            $table->unsignedBigInteger('skills_id')->nullable();
+            // index - для ускоренной сортировки, фильтрации по ключу
+            $table->index('addres_id', 'post_addres_idx');
+            $table->index('skills_id', 'post_skills_idx');
+
+            // on - на какую таблицу ссылаться, references - на какую колонку
+            $table->foreign('addres_id', 'post_addres_fk')->references('id')->on('addres');
+            $table->foreign('skills_id', 'post_skills_fk')->references('id')->on('skills');
+            //  $table->foreignId('category_id')->constrained();
         });
     }
 

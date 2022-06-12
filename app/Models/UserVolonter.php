@@ -24,4 +24,16 @@ class UserVolonter extends Authenticatable
     protected $guarded = []; // Разрешает вносить значения в БД
 
 
+// Категории. Достаем значения по id (категории) .. belongs - "принадлежит" .. admin_panel_id - имя бд
+    public function address() {
+
+        return $this->belongsTo(Addres::class, 'addres_id', 'id');
+    }
+
+    public function skills() {
+
+        return $this->belongsTo(Skills::class, 'skills_id', 'id');
+    }
+
+
 }
