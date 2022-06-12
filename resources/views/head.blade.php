@@ -20,16 +20,14 @@
 
             <!--                    <svg class="bi me-2" width="40" height="32"><use xlink:href="/"></use></svg> -->
 
-            <span class="fs-4">(логотип) МОСВОЛОНТЁР</span>
+            <span class="fs-4">МОСВОЛОНТЁР</span>
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ route('register-volonter') }}" class="nav-link">Нанять волонтера</a></li>
-            <li class="nav-item"><a href="{{ route('register-org') }}" class="nav-link">Взять заказ</a></li>
-
-
-
-            <li class="nav-item"><a href="{{ route('org') }}" class="nav-link">Желаю помочь</a></li>
+            <li class="nav-item"><a href="{{ route('volonter') }}" class="nav-link">Волонтеры</a></li>
+            <li class="nav-item"><a href="{{ route('register-volonter') }}" class="nav-link">Стать волонтером</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Взять заказ</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Желаю помочь</a></li>
 
             <div class="d-flex bg-indigo-50">
                 @if (Route::has('login'))
@@ -74,35 +72,27 @@
         </div>
 
         <div class="col">
-            <h5>Section</h5>
+            <h5></h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+
             </ul>
         </div>
 
         <div class="col">
-            <h5>Section</h5>
+            <h5></h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+
             </ul>
         </div>
 
         <div class="col">
-            <h5>Section</h5>
+            <h5></h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Волонтеры</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Взять заказ</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Желаю помочь</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Войти</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Зарегестрироваться</a></li>
             </ul>
         </div>
     </footer>

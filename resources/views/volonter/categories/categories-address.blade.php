@@ -21,16 +21,16 @@
                     <div class="alert alert-light">
                         <div class="row row-cols-2">
                             <span> <h3> {{ $key->name }} </h3> </span>
-                            <span> {{ $key->surname }}  </span>
-                            <span> {{ $key->patronymic }}  </span>
-                            <span style="color: green; text-align: end; font-size: 24px;"> </span>
+                            <a href="{{ route('one-volonter', $key->id) }}"> <img class="rounded img-fluid img-thumbnail;" style="width: 50%" src="{{ asset($key->profile_image)  }}" title="{{ $key->name }}"></a>
+
+                            <span style="color: grey; font-size: 14px;"> {{ $key->age." лет" }} </span>
+                        </div>
+                        <div class="row row-cols-1">
+                            <span> <a href="{{ route('address', $key->addres_id) }}"> {{ $key->address->addres }}</a> </span>
                             <span> <a href="{{ route('skills', $key->skills_id) }}"> {{ $key->skills->skills }}</a> </span>
-                            <span style="color: grey; text-align: end; font-size: 14px;"> {{ $key->age." лет" }} </span>
+                            <span> {{ $key->description }} </span>
                         </div>
 
-                        <span> {{ $key->description }} </span>
-
-                        <a href="{{ route('one-volonter', $key->id) }}"> <img class="rounded img-fluid img-thumbnail" src="{{ asset($key->profile_image)  }}" title="{{ $key->name }}"></a>
                         <div class="row">
                             <div class="col">
                                 <a href="{{ route('one-volonter', $key->id) }}" class="mx-auto btn btn-outline-dark">Подробнее</a>

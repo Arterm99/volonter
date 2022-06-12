@@ -22,7 +22,7 @@
             </button>
             <ul class="dropdown-menu">
                 @foreach($address as $key)
-                    <li> <a class="dropdown-item" href="{{ route('address', $key->addres_id ) }}"> {{ $key->address->addres }} </a></li>
+                    <li> <a class="dropdown-item" href="{{ route('address', $key->id ) }}"> {{ $key->addres }} </a></li>
                 @endforeach
             </ul>
         </div>
@@ -32,7 +32,7 @@
             </button>
             <ul class="dropdown-menu">
                 @foreach($skills as $key)
-                    <li> <a class="dropdown-item" href="{{ route('skills', $key->skills_id ) }}"> {{ $key->skills->skills }} </a></li>
+                    <li> <a class="dropdown-item" href="{{ route('skills', $key->id ) }}"> {{ $key->skills }} </a></li>
                 @endforeach
             </ul>
         </div>
@@ -64,7 +64,6 @@
                                 <span> <a href="{{ route('skills', $key->skills_id) }}"> {{ $key->skills->skills }}</a> </span>
                                 <span> {{ $key->description }} </span>
                              </div>
-
 
                             <div class="row">
                                 <div class="col">

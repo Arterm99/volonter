@@ -24,11 +24,11 @@ class UserVolonterFactory extends Factory
         return [
 
             'name' => $this->faker->name,
-            'surname' => 'Иванов',
-            'patronymic' => 'Иванович',
+            'surname' => 'Фамилия',
+            'patronymic' => 'Отчество',
             'age' => random_int(14 , 65),
             'description' => $this->faker->text,
-            'profile_image' =>  'storage/women.jpg',
+            'profile_image' =>  'storage/men.jpg',
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
