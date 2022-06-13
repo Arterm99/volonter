@@ -67,7 +67,7 @@ composer install
 
 РАЗРАБОТЧИКИ
 
-<h4>Рябцев Артем back-end https://t.me/artruu </h4>
-<h4>Ксения front-end </h4>
+Рябцев Артем back-end https://t.me/artruu
+Ксения front-end
 
 
