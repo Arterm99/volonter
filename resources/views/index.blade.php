@@ -7,19 +7,13 @@
 <!-- Начало кода -->
 @section('content')
 
-    <div>
-        <div class="container" style="max-width: 50%;">
-        </div>
-
-        <div class="container bg-indigo-50 p-3 rounded-3">
-            <div class="text-center">
-                <div class="container">
-                    <a href="{{ route('volonter') }}" type="button" class="btn btn-primary">Волонтеры</a>
-                    <a href="#" type="button" class="btn btn-secondary">Желаю помочь</a>
-                </div>
+    <div class="container bg-indigo-50 p-3 rounded-3" style="max-width: 50%; margin-top: 150px; margin-bottom: 150px">
+        <div class="text-center">
+            <div class="container ">
+                <a href="{{ route('volonter') }}" type="button" class="btn btn-primary">Волонтеры</a>
+                <a href="#" type="button" class="btn btn-secondary">Желаю помочь</a>
             </div>
         </div>
-
     </div>
 
     <!-- Конец кода -->
